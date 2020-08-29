@@ -9,6 +9,10 @@ let numStopped = 0;
 
 balloons.forEach((balloon) => {
     balloon.animation = balloon.animate([{top: "80vh"}, {top: "5vh"}], {duration: 10000, fill: "forwards"});
+
+    balloon.animation.onfinish = () =>{
+        window.location.href = failURL;
+    }
     balloon.addEventListener("click", (e) => {
         e.currentTarget.animation.pause();
         numStopped++;
@@ -18,8 +22,8 @@ balloons.forEach((balloon) => {
     })
 });
 
-animations.forEach((animation) => {
-    animation.onfinish = () => {
-        window.location.href = failURL;
-    }
-});
+// animations.forEach((animation) => {
+//     animation.onfinish = () => {
+//         window.location.href = failURL;
+//     }
+// });
